@@ -24,70 +24,77 @@ import { useRef } from "react";
 // import { RemotionPlayer } from "./components/RemotionPlayer";
 
 const SKILLS = [
-  {
-    name: "AI & LLM Orchestration",
-    icon: <BrainCircuit className="w-5 h-5" />,
-    items: ["LangGraph", "Agentic Workflows", "RAG Systems", "Human-in-the-Loop"]
+  { 
+    name: "AI & LLM Orchestration", 
+    icon: <BrainCircuit className="w-5 h-5" />, 
+    items: ["LangGraph", "Agentic Workflows", "RAG Systems", "Human-in-the-Loop"] 
   },
-  {
-    name: "Machine Learning",
-    icon: <Cpu className="w-5 h-5" />,
-    items: ["Neural Networks", "Transformers", "Scikit-learn", "TensorFlow", "PyTorch"]
+  { 
+    name: "Machine Learning", 
+    icon: <Cpu className="w-5 h-5" />, 
+    items: ["Neural Networks", "Transformers", "Scikit-learn", "TensorFlow", "PyTorch"] 
   },
-  {
-    name: "Automation & Tools",
-    icon: <Workflow className="w-5 h-5" />,
-    items: ["n8n", "Zapier", "Streamlit", "Git/GitHub", "SQL"]
+  { 
+    name: "Automation & Tools", 
+    icon: <Workflow className="w-5 h-5" />, 
+    items: ["n8n", "Zapier", "Streamlit", "Git/GitHub", "SQL"] 
   },
-  {
-    name: "Design & UI/UX",
-    icon: <Palette className="w-5 h-5" />,
-    items: ["Figma", "Adobe Creative Suite", "Canva", "UI/UX Strategy"]
+  { 
+    name: "Design & UI/UX", 
+    icon: <Palette className="w-5 h-5" />, 
+    items: ["Figma", "Adobe Creative Suite", "Canva", "UI/UX Strategy"] 
   },
 ];
 
 const PROJECTS = [
   {
-    title: "Autonomous Coding Agent",
-    description: "A Python-based agent using LangGraph capable of writing, executing, and self-debugging code with built-in safety layers.",
-    tags: ["Python", "LangGraph", "Agentic AI"],
-    image: "https://picsum.photos/seed/coding-agent/800/600",
+    title: "Finance Advisor Agent",
+    description: "Orchestrated specialized sub-agents via Google ADK to deliver personalized, risk-aware investment recommendations using Gemini's reasoning.",
+    tags: ["Google ADK", "Python", "Multi-Agent", "Gemini"],
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800&h=600",
+    github: "https://github.com/Akshu24Tech/google_adk/tree/main/finance_advisor",
+  },
+  {
+    title: "Voice-Enabled HITL Coding Agent",
+    description: "Voice-first assistant with a self-correcting code agent. Features dual memory and LangGraph HITL interrupt gates for human approval.",
+    tags: ["LangGraph", "Deepgram", "Streamlit", "PostgreSQL"],
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800&h=600",
     github: "https://github.com/Akshu24Tech/Lang-Graph/tree/main/voice-chatbot-hitl"
   },
   {
-    title: "Second Hand Sniper",
-    description: "Multi-agent orchestration system developed for a Google x Kaggle event to automate discovery and evaluation of product deals.",
-    tags: ["Multi-Agent", "LLMs", "Python"],
-    image: "https://picsum.photos/seed/sniper/800/600",
-    github: "https://github.com/Akshu24Tech/Capstone-Agent"
+    title: "Universal Self-RAG Pipeline",
+    description: "Self-Reflective RAG that autonomously decides when to retrieve vs. answer directly, with automated query rewriting on retrieval failure.",
+    tags: ["LangGraph", "RAG", "Vector DBs"],
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800&h=600",
+    github: "https://github.com/Akshu24Tech/Self-RAG"
   },
   {
-    title: "AI Travel Planner",
-    description: "Integrated multiple APIs via n8n and Lovable.ai to create an automated, real-world itinerary generator.",
-    tags: ["n8n", "Automation", "APIs"],
-    image: "https://picsum.photos/seed/travel/800/600",
-    github: "#"
+    title: "Second-Hand Sniper",
+    description: "3-agent pipeline that monitors marketplaces and auto-drafts negotiation messages. Built during Google × Kaggle AI Agents Intensive.",
+    tags: ["Multi-Agent", "Python", "Hackathon"],
+    image: "https://picsum.photos/seed/sniper/800/600",
+    github: "https://github.com/Akshu24Tech/Capstone-Agent"
   }
 ];
 
 const EXPERIENCE = [
   {
+    role: "AI Intern",
+    company: "Mirai School of Technology",
+    period: "Jul 2025 - Aug 2025",
+    desc: "Architected an Autonomous AI Travel Planner using n8n and Lovable.ai. Designed automation logic and delivered human-in-the-loop oversight workflows."
+  },
+  {
+    role: "AI/ML Intern",
+    company: "AD Infocom Systems",
+    period: "May 2025 - Jun 2025",
+    desc: "Implemented supervised ML algorithms tailored to business use-cases and contributed to enterprise-level AI pipelines."
+  },
+  {
     role: "Graphic and Design Lead",
     company: "GDG on Campus Gurugram University",
     period: "Sept 2024 - Present",
     desc: "Spearheading technical strategy and branding for AI/ML initiatives, bridging community engagement and technical execution."
-  },
-  {
-    role: "AI Intern",
-    company: "Mirai School of Technology",
-    period: "July 2025 - Aug 2025",
-    desc: "Architected an Autonomous AI Travel Planner using n8n and Lovable.ai, automating complex itinerary generation."
-  },
-  {
-    role: "AI Intern",
-    company: "AD Infosys",
-    period: "May 2025 - June 2025",
-    desc: "Implemented Machine Learning algorithms for specific business use-cases and worked with real-world datasets."
   }
 ];
 
@@ -115,7 +122,6 @@ export default function App() {
           <video
             autoPlay
             muted
-            loop
             playsInline
             className="w-full h-full object-cover opacity-80"
           >
@@ -399,3 +405,4 @@ export default function App() {
     </div>
   );
 }
+
