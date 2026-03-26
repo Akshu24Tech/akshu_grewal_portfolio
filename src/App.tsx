@@ -16,7 +16,7 @@ import {
   Palette,
   Zap,
 } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const SKILLS = [
   {
@@ -100,6 +100,69 @@ const EXPERIENCE = [
   },
 ];
 
+/** Mobile hamburger nav (visible only on <md screens) */
+function MobileNav() {
+  const [open, setOpen] = useState(false);
+  const links = ["Work", "Skills", "Contact"];
+
+  return (
+    <div className="md:hidden">
+      {/* Bar */}
+      <div className="pill-nav flex items-center justify-between px-5 py-3">
+        <span className="font-serif text-lg font-light tracking-widest text-white">AKSHU</span>
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Toggle menu"
+          className="flex flex-col gap-[5px] w-6 h-5 justify-center items-center"
+        >
+          <span
+            className={`block w-5 h-px bg-white transition-all duration-300 origin-center ${
+              open ? "rotate-45 translate-y-[6px]" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-px bg-white transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-px bg-white transition-all duration-300 origin-center ${
+              open ? "-rotate-45 -translate-y-[6px]" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Dropdown */}
+      <motion.div
+        initial={false}
+        animate={open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="overflow-hidden"
+      >
+        <div className="mt-2 pill-nav flex flex-col gap-0 px-5 py-4">
+          {links.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setOpen(false)}
+              className="py-3 border-b border-white/10 last:border-0 text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="mailto:akshug2004@gmail.com"
+            className="mt-3 text-center px-4 py-2 rounded-full bg-[#C9A84C] text-black text-[10px] font-mono uppercase tracking-widest"
+          >
+            Hire Me
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 /** Reusable boxed section label used on every section header */
 function SectionLabel({ index, label }: { index: string; label: string }) {
   return (
@@ -142,26 +205,32 @@ export default function App() {
       </div>
 
       {/* ── Floating pill navbar ── */}
-      <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 px-6 py-3 flex items-center gap-8 pill-nav">
-        <span className="font-serif text-lg font-light tracking-widest text-white mr-4">AKSHU</span>
-        {["Work", "Skills", "Contact"].map((item, i) => (
-          <motion.a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors hover:-translate-y-px"
+      <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-xl">
+        {/* Desktop pill */}
+        <div className="pill-nav hidden md:flex items-center gap-6 px-6 py-3">
+          <span className="font-serif text-lg font-light tracking-widest text-white mr-2">AKSHU</span>
+          {["Work", "Skills", "Contact"].map((item, i) => (
+            <motion.a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
+            >
+              {item}
+            </motion.a>
+          ))}
+          <a
+            href="mailto:akshug2004@gmail.com"
+            className="ml-auto px-4 py-1.5 rounded-full bg-[#C9A84C] text-black text-[10px] font-mono uppercase tracking-widest hover:scale-[1.03] transition-transform"
           >
-            {item}
-          </motion.a>
-        ))}
-        <a
-          href="mailto:akshug2004@gmail.com"
-          className="ml-4 px-4 py-1.5 rounded-full bg-[#C9A84C] text-black text-[10px] font-mono uppercase tracking-widest hover:scale-[1.03] transition-transform"
-        >
-          Hire Me
-        </a>
+            Hire Me
+          </a>
+        </div>
+
+        {/* Mobile bar */}
+        <MobileNav />
       </nav>
 
       {/* ── Hero ── */}
@@ -439,3 +508,4 @@ export default function App() {
     </div>
   );
 }
+
