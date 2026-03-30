@@ -8,7 +8,7 @@ A modern, high-performance personal portfolio built with **React**, **Vite**, an
 
 ## 🚀 Live Demo
 
-**[akshu-grewal-portfolio.vercel.app](#)** *(replace with your Vercel URL)*
+**[akshu-grewal-portfolio.vercel.app](#)**
 
 ---
 
