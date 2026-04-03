@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import { SmartDescription } from "./components/SmartDescription";
 
 const SKILLS = [
   {
@@ -335,7 +336,9 @@ export default function App() {
               <h3 className="font-serif text-2xl font-light mb-2 group-hover:translate-x-2 transition-transform duration-500">
                 {project.title}
               </h3>
-              <p className="text-white/40 text-sm font-light leading-relaxed">{project.description}</p>
+              {/* SmartDescription uses Pretext to calculate the exact text height
+                  so the Read More animation goes to the EXACT height, not max-height:9999px */}
+              <SmartDescription text={project.description} />
             </motion.div>
           ))}
         </div>
@@ -367,7 +370,7 @@ export default function App() {
                   {exp.role}
                 </h3>
                 <h4 className="text-white/40 text-sm mb-4 uppercase tracking-wider">{exp.company}</h4>
-                <p className="text-white/50 font-light text-sm leading-relaxed">{exp.desc}</p>
+                <SmartDescription text={exp.desc} />
               </motion.div>
             ))}
           </div>
