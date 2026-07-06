@@ -23,7 +23,7 @@ const SKILLS = [
   {
     name: "AI & LLM Orchestration",
     icon: <BrainCircuit className="w-5 h-5" />,
-    items: ["LangGraph", "Agentic Workflows", "RAG Systems", "Human-in-the-Loop"],
+    items: ["LangGraph", "Google ADK", "RAG Systems", "Multi-Agent", "Human-in-the-Loop"],
   },
   {
     name: "Machine Learning",
@@ -33,7 +33,7 @@ const SKILLS = [
   {
     name: "Automation & Tools",
     icon: <Workflow className="w-5 h-5" />,
-    items: ["n8n", "Zapier", "Streamlit", "Git/GitHub", "SQL"],
+    items: ["Claude Code", "n8n", "Streamlit", "PostgreSQL", "Git/GitHub"],
   },
   {
     name: "Design & UI/UX",
@@ -44,13 +44,13 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: "Finance Advisor Agent",
+    title: "Repo Interview Coach",
     description:
-      "Orchestrated specialized sub-agents via Google ADK to deliver personalized, risk-aware investment recommendations using Gemini's reasoning.",
-    tags: ["Google ADK", "Python", "Multi-Agent", "Gemini"],
+      "Google ADK agent live on Cloud Run that profiles any public GitHub repo and runs a human-in-the-loop interview into a scored dossier. Ships with a pass@k eval suite.",
+    tags: ["Google ADK", "Cloud Run", "Eval Suite", "Python"],
     image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800&h=600",
-    github: "https://github.com/Akshu24Tech/google_adk/tree/main/finance_advisor",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800&h=600",
+    github: "https://github.com/Akshu24Tech/repo-interview-coach",
   },
   {
     title: "Voice-Enabled HITL Coding Agent",
@@ -71,12 +71,12 @@ const PROJECTS = [
     github: "https://github.com/Akshu24Tech/Self-RAG",
   },
   {
-    title: "Second-Hand Sniper",
+    title: "Repo Guardian",
     description:
-      "3-agent pipeline that monitors marketplaces and auto-drafts negotiation messages. Built during Google × Kaggle AI Agents Intensive.",
-    tags: ["Multi-Agent", "Python", "Hackathon"],
-    image: "https://picsum.photos/seed/sniper/800/600",
-    github: "https://github.com/Akshu24Tech/Capstone-Agent",
+      "Three-stage code-review agent (Security Screen → Spec Conformance → Vibe Diff) that scans PR diffs for hardcoded secrets, prompt injection, and out-of-spec changes before approving merges.",
+    tags: ["Multi-Agent", "Python", "Security"],
+    image: "https://picsum.photos/seed/guardian/800/600",
+    github: "https://github.com/Akshu24Tech/repo-guardian",
   },
 ];
 
@@ -246,7 +246,7 @@ export default function App() {
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 mb-4 block">
-              AI Engineer · Agentic Systems · RAG
+              AI Engineer · Agentic Systems · LLM Orchestration
             </span>
             <h1 className="font-serif text-6xl md:text-8xl font-light tracking-tighter mb-6 text-glow">
               Akshu <br />
