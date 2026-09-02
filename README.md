@@ -1,4 +1,4 @@
-# Akshu Grewal — AI Engineer Portfolio
+# Akshu Grewal AI Engineer Portfolio
 
 > *"I don't just train models; I build intelligent systems that reason, act, and solve complex problems autonomously."*
 
